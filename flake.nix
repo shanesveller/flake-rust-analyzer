@@ -3,9 +3,7 @@
 
   inputs = {
     cargo2nix = {
-      # Primarily for https://github.com/cargo2nix/cargo2nix/commit/e37f3788b97ba4607813e41da409a7fd6db8a523
-      url =
-        "github:cargo2nix/cargo2nix/433cd5b53d91a9577e7bfaa910df6b8eb8528bbc";
+      url = "github:cargo2nix/cargo2nix";
       flake = false;
     };
     flake-compat = {

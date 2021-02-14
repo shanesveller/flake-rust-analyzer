@@ -3,17 +3,16 @@
     "cargo2nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1608618985,
-        "narHash": "sha256-9pIASS8+xeKCucOYPtcmnMRjPNWuc4nl4L3J3EXpE5s=",
+        "lastModified": 1610948239,
+        "narHash": "sha256-1Y/aqaYxVVagjLq+/vm3Q+Ln0b3rXjMguJ7myPd2rBA=",
         "owner": "cargo2nix",
         "repo": "cargo2nix",
-        "rev": "433cd5b53d91a9577e7bfaa910df6b8eb8528bbc",
+        "rev": "0dec2a8d6313347dfd183f3cd52aa9d3b43e7ed2",
         "type": "github"
       },
       "original": {
         "owner": "cargo2nix",
         "repo": "cargo2nix",
-        "rev": "433cd5b53d91a9577e7bfaa910df6b8eb8528bbc",
         "type": "github"
       }
     },

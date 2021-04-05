@@ -16,6 +16,11 @@
       flake = false;
     };
     nixpkgs.url = "nixpkgs/nixos-20.09";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, flake-utils, nixpkgs, ... }:

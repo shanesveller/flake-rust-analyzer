@@ -35,13 +35,12 @@
           ];
         };
 
-        rustChannel = "1.51.0";
-        rustChannelSha256 = "+EFKtTDUlFY0aUXdSvrz7tAhf5/GsqyVOp8skXGTEJM=";
+        rustChannel = "stable";
 
         mkCargo2NixPackage = path:
           pkgs.callPackage path {
             inherit nixpkgs rustChannel system;
-            inherit (inputs) cargo2nix;
+            inherit (inputs) cargo2nix rust-overlay;
           };
       in {
         devShell = pkgs.mkShell {

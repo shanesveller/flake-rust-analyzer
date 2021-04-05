@@ -30,8 +30,8 @@
           ];
         };
 
-        rustChannel = "1.50.0";
-        rustChannelSha256 = "PkX/nhR3RAi+c7W6bbphN3QbFcStg49hPEOYfvG51lA=";
+        rustChannel = "1.51.0";
+        rustChannelSha256 = "+EFKtTDUlFY0aUXdSvrz7tAhf5/GsqyVOp8skXGTEJM=";
 
         mkCargo2NixPackage = path:
           pkgs.callPackage path {

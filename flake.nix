@@ -11,10 +11,6 @@
       flake = false;
     };
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs-mozilla = {
-      url = "github:mozilla/nixpkgs-mozilla";
-      flake = false;
-    };
     nixpkgs.url = "nixpkgs/nixos-20.09";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";

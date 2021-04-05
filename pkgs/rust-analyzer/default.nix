@@ -18,8 +18,8 @@ let
     workspaceSrc = pkgs.fetchFromGitHub {
       owner = "rust-analyzer";
       repo = "rust-analyzer";
-      rev = "2021-03-29";
-      sha256 = "0hynkg5h2p029qi458rjxgi50w4wsymzqcy5r046y41n9y9qqb5s";
+      rev = "2021-04-05";
+      sha256 = "0jvi0p8j9c5r2xxyzi9pyfzhvgp66ardhzsx9hdkzfvpn7rp4g34";
     };
 
     localPatterns = [

@@ -1,16 +1,16 @@
-# https://github.com/cargo2nix/cargo2nix/blob/433cd5b53d91a9577e7bfaa910df6b8eb8528bbc/examples/4-independent-packaging/default.nix
-{ system, nixpkgs, nixpkgsMozilla, cargo2nix, rustChannel, rustChannelSha256, }:
+# https://github.com/cargo2nix/cargo2nix/blob/ebef37673009af79814528b1bc42ec30d7a25012/examples/4-independent-packaging/default.nix
+{ system, nixpkgs, cargo2nix, rust-overlay, rustChannel }:
 let
   pkgs = import nixpkgs {
     inherit system;
     overlays = let
-      rustOverlay = import "${nixpkgsMozilla}/rust-overlay.nix";
+      rustOverlay = import rust-overlay;
       cargo2nixOverlay = import "${cargo2nix}/overlay";
     in [ cargo2nixOverlay rustOverlay ];
   };
 
   rustPkgs = pkgs.rustBuilder.makePackageSet' {
-    inherit rustChannel rustChannelSha256;
+    inherit rustChannel;
     packageFun = import ./Cargo.nix;
 
     # https://github.com/rust-analyzer/rust-analyzer/releases
@@ -23,8 +23,8 @@ let
     };
 
     localPatterns = [
-      "^(src|tests|crates|xtask|assets|templates)(/.*)?"
-      "[^/]*\\.(rs|toml)$"
+      ''^(src|tests|crates|xtask|assets|templates)(/.*)?''
+      ''[^/]*\.(rs|toml)$''
     ];
   };
 

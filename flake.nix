@@ -30,8 +30,8 @@
           inherit system;
 
           overlays = [
-            (import inputs.nixpkgs-mozilla)
-            (import "${inputs.cargo2nix}/overlay/default.nix")
+            (import inputs.rust-overlay)
+            (import "${inputs.cargo2nix}/overlay")
           ];
         };
 
@@ -40,9 +40,8 @@
 
         mkCargo2NixPackage = path:
           pkgs.callPackage path {
-            inherit nixpkgs rustChannel rustChannelSha256 system;
-            cargo2nix = inputs.cargo2nix;
-            nixpkgsMozilla = inputs.nixpkgs-mozilla;
+            inherit nixpkgs rustChannel system;
+            inherit (inputs) cargo2nix;
           };
       in {
         devShell = pkgs.mkShell {
@@ -56,8 +55,7 @@
             (mkCargo2NixPackage ./pkgs/rust-analyzer).rust-analyzer.bin;
 
           cargo2nix = (import inputs.cargo2nix {
-            inherit nixpkgs rustChannel rustChannelSha256 system;
-            nixpkgsMozilla = inputs.nixpkgs-mozilla;
+            inherit nixpkgs rustChannel system;
           }).package;
         };
 

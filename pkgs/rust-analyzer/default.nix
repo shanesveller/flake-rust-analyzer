@@ -14,12 +14,12 @@ let
     packageFun = import ./Cargo.nix;
 
     # https://github.com/rust-analyzer/rust-analyzer/releases
-    # nix-prefetch-url --unpack https://github.com/rust-analyzer/rust-analyzer/archive/2021-04-12.tar.gz
+    # nix-prefetch-url --unpack https://github.com/rust-analyzer/rust-analyzer/archive/2021-04-26.tar.gz
     workspaceSrc = pkgs.fetchFromGitHub {
       owner = "rust-analyzer";
       repo = "rust-analyzer";
-      rev = "2021-04-12";
-      sha256 = "1rg20aswbh9palwr3qfcnscsvzmbmhghn4k0nl11m9j7z6hva6bg";
+      rev = "2021-04-26";
+      sha256 = "1k5xw9xlpszhviimxzdwpbg47sbh49p6x6xmj36v9mzbnys82y39";
     };
 
     localPatterns = [

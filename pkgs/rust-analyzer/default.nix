@@ -9,16 +9,29 @@ let
     in [ cargo2nixOverlay rustOverlay ];
   };
 
+  rev = "2021-05-10";
+
   rustPkgs = pkgs.rustBuilder.makePackageSet' {
     inherit rustChannel;
     packageFun = import ./Cargo.nix;
+
+    packageOverrides = pkgs: pkgs.rustBuilder.overrides.all ++ [
+      (pkgs.rustBuilder.rustLib.makeOverride {
+          name = "rust-analyzer";
+          overrideAttrs = drv: {
+            RUST_ANALYZER_REV = rev;
+            # Clobbered by Cargo.toml defined version
+            version = rev;
+          };
+      })
+    ];
 
     # https://github.com/rust-analyzer/rust-analyzer/releases
     # nix-prefetch-url --unpack https://github.com/rust-analyzer/rust-analyzer/archive/2021-05-10.tar.gz
     workspaceSrc = pkgs.fetchFromGitHub {
       owner = "rust-analyzer";
       repo = "rust-analyzer";
-      rev = "2021-05-10";
+      inherit rev;
       sha256 = "0lx12kn6lg75v0ph9ss0bn14hqm7lfaqd5vxw7948l842flqagm3";
     };
 
